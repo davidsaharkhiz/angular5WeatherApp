@@ -1,0 +1,20 @@
+<h1>{{ title }}</h1>
+<h2>Input your city</h2>
+
+<input type="text" name="city" [(ngModel)]="cityName">
+<input type="submit" value="Get Weather!"  (click)="populateData();">
+
+<div [hidden]="!successfulQuery">
+  <h2>Results</h2>
+  <h3>Weather Conditions</h3>
+  <p>The following weather conditions are present in <span class="capitalize">{{lastSuccessfulQueryCity}}</span>:</p>
+  <app-weather-result-list [results]="results"></app-weather-result-list>
+  <h3>Wind</h3>
+  The wind speed is {{windSpeed}}kph and it's blowing at a {{windDirection}}&deg; angle.
+  <p>
+    It is currently {{(temperature - 273.15) | number:'1.0-0'}}&deg; C
+  </p>
+</div>
+    
+
+
